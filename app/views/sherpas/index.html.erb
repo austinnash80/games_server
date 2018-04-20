@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sherpas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Password confirmation</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sherpas.each do |sherpa| %>
+      <tr>
+        <td><%= sherpa.name %></td>
+        <td><%= sherpa.email %></td>
+        <td><%= sherpa.password %></td>
+        <td><%= sherpa.password_confirmation %></td>
+        <td><%= sherpa.location %></td>
+        <td><%= link_to 'Show', sherpa %></td>
+        <td><%= link_to 'Edit', edit_sherpa_path(sherpa) %></td>
+        <td><%= link_to 'Destroy', sherpa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sherpa', new_sherpa_path %>
