@@ -11,8 +11,8 @@ u1 = User.create :name => 'Austin', :email => 'Austin@email.com', :password => '
 u2 = User.create :name => 'Ivor', :email => 'Ivor@email.com', :password => 'chicken', :password_confirmation => 'chicken'
 
 Game.destroy_all
-g1 = Game.create :name => 'Monopoly', :min_players => '3', :max_players => '6', :age => '12', :playing_time => '45', :description => 'Really fun game', :image => 'https://images-na.ssl-images-amazon.com/images/I/915NTWZUtjL._SL1500_.jpg'
-g2 = Game.create :name => 'Battleship', :min_players => '5', :max_players => '7', :age => '12', :playing_time => '60', :description => 'Most fun game', :image => 'https://images-na.ssl-images-amazon.com/images/I/911fxkKxfDL._SL1500_.jpg'
+g1 = Game.create :name => 'Monopoly', :min_players => '3', :max_players => '6', :age => '12', :playing_time => '45', :category => 'annoying', :description => 'Really fun game', :image => 'https://images-na.ssl-images-amazon.com/images/I/915NTWZUtjL._SL1500_.jpg'
+g2 = Game.create :name => 'Battleship', :min_players => '5', :max_players => '7', :age => '12', :playing_time => '60', :category => 'strategy', :description => 'Most fun game', :image => 'https://images-na.ssl-images-amazon.com/images/I/911fxkKxfDL._SL1500_.jpg'
 
 Event.destroy_all
 e1 = Event.create :date => '20/4/18', :time => '7:00pm', :location => '333 George St',
