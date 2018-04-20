@@ -17,18 +17,23 @@
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
+    <%= form.label :player %>
+    <%= form.check_box :player, id: :user_player %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :user_password %>
+    <%= form.label :sherpa %>
+    <%= form.check_box :sherpa, id: :user_sherpa %>
   </div>
 
   <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation, id: :user_password_confirmation %>
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :user_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.text_field :available, id: :user_available %>
   </div>
 
   <div class="actions">

@@ -6,18 +6,23 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>Player:</strong>
+  <%= @user.player %>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>Sherpa:</strong>
+  <%= @user.sherpa %>
 </p>
 
 <p>
-  <strong>Password confirmation:</strong>
-  <%= @user.password_confirmation %>
+  <strong>Location:</strong>
+  <%= @user.location %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @user.available %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

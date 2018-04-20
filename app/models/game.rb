@@ -1,4 +1,3 @@
 class Game < ApplicationRecord
-  has_many :events
-  has_many :sherpas 
+  has_many :events 
 end
