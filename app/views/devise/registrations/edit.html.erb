@@ -22,6 +22,31 @@
   </div>
 
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player %>
+    <%= f.check_box :player, id: :user_player %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sherpa %>
+    <%= f.check_box :sherpa, id: :user_sherpa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location, id: :user_location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :available %>
+    <%= f.text_field :available, id: :user_available %>
+  </div>
+
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
