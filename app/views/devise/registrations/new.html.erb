@@ -37,6 +37,21 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div>
+    Please select only one.  
+  </div>
+
+  <div class="field">
+    <%= f.label :player %>
+    <%= f.check_box :player, id: :user_player %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sherpa %>
+    <%= f.check_box :sherpa, id: :user_sherpa %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

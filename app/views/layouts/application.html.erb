@@ -13,32 +13,22 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
-    <title>Games Server</title>
+    <title>SHERPA v.1.0.1</title>
 
   </head>
-
   <body>
-
+    <div class="wrapper" id="wrapper">  <p class="announcement">
+      <div class="card-group" id="card-group" data-active-card="login">
     <div class="loggy">
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.name || current_user.email %></strong>.
-        <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit Account', edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-
-      <hr />
-
-      <%= link_to "Home", root_path %>
-      <%= link_to "About Us", aboutus_path %>
-      <%= link_to "All Games", games_path %>
-      <%= link_to "All Events", events_path %>
-      <%= link_to "Contact", contact_path %>
     </div>
-
-    <hr />
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -48,5 +38,7 @@
     <% end %>
 
     <%= yield %>
+  </div>
+  </div>
   </body>
 </html>

@@ -1,0 +1,271 @@
+$black: #000;
+$pink: #fbc2eb;
+$green: #43D58C;
+$medgreen: #3CB371;
+$blue: 	#82CFFD;
+$purple: #a6c1ee;
+$white: #fff;
+$light-gray: #f1f1f1;
+$gray: #ccc;
+$dark-gray: #333;
+
+// Mixins
+@mixin size($w, $h) {
+ width: $w;
+ height: $h;
+}
+
+@mixin absolute-center($pos) {
+ position: absolute;
+ top: $pos;
+ left: $pos;
+ transform: translate(-$pos, -$pos);
+}
+
+// Style
+* {
+ font-family: 'Bitter', sans;
+ outline: none !important;
+}
+
+.wrapper {
+ @include size(100vw, 100vh);
+ background-image: linear-gradient(45deg, $white 10%, #e3dabb 100%);
+ background-size: 150%;
+ background-position: right center;
+ position: relative;
+ transition: all 600ms ease;
+
+ &.active {
+   background-size: 300%;
+   background-position: left center;
+ }
+
+ .announcement {
+   color: rgba(0,0,0,0.35);
+   position: absolute;
+   bottom: 0;
+   right: 15px;
+ }
+}
+
+.card-group {
+ @include absolute-center(50%);
+ @include size(360px, 495px);
+ background-color: $white;
+ border-radius: 5px;
+ box-shadow: 0 3px 3px 0 rgba(0,0,0,0.15);
+ position: relative;
+ overflow: hidden;
+ transition: height 250ms ease;
+ transition-delay: 225ms;
+
+ .transition-animation {
+   @include size(inherit, inherit);
+   background-color: $green;
+   left: 360px;
+   position: absolute;
+   overflow: hidden;
+   transition: left 650ms ease;
+   z-index: 2;
+ }
+
+ .disclaimer {
+   color: $gray;
+   line-height: 1.5;
+   margin-left: -1px;
+ }
+
+ div[class*="card-"] {
+   overflow: hidden;
+
+   .title {
+     color: $green;
+     font-weight: 700;
+     left: 0;
+     margin: 0;
+     position: relative;
+     text-shadow: 2px 2px 0 $medgreen;
+     transition: all 150ms ease;
+
+     ~ hr {
+       margin: 10px 0;
+       opacity: 0.050;
+     }
+   }
+
+   .card-footer {
+     @include size(calc(100% + 60px), auto);
+     background: $light-gray;
+     bottom: 0;
+     border-top: 1px solid $gray;
+     box-sizing: border-box;
+     padding: 0 30px 20px;
+     position: absolute;
+     margin-left: -30px;
+     margin-top: 30px;
+
+     p {
+       color: #666;
+       line-height: 1.5;
+       margin-left: -1px;
+     }
+
+     .btn-default {
+       width: calc(100% - 60px);
+       margin-top: -5px;
+     }
+   }
+
+   form {
+     .input-group {
+       cursor: pointer;
+       position: relative;
+
+       &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         @include size(100%, 40px);
+         background: $green;
+         z-index: 0;
+       }
+
+       input {
+         @include size(100%, 40px);
+         display: block;
+         background: $light-gray;
+         border: none;
+         box-sizing: border-box;
+         color: rgba(0,0,0,0.45);
+         cursor: inherit;
+         margin-bottom: 15px;
+         margin-top: 15px;
+         padding: 0 15px;
+         position: relative;
+         transition: all 150ms ease;
+         z-index: 1;
+
+         ~ label {
+           color: rgba(0,0,0,0.45);
+           cursor: inherit;
+           left: 15px;
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           transition: transform 150ms ease;
+           z-index: 1;
+         }
+
+         &:focus,
+         &:not([value=""]) {
+           background: $white;
+           border-radius: 0;
+           border: 1px solid $medgreen;
+           margin-top: 30px;
+           transform: translate(-2px, -3px);
+
+           ~ label {
+             color: $medgreen;
+             transform: translate(-17px, -43px);
+           }
+         }
+       }
+     }
+   }
+
+   &.card-login,
+   &.card-register {
+     @include size(inherit, inherit);
+     box-sizing: border-box;
+     float: left;
+     padding: 30px;
+     position: absolute;
+     transition: all 450ms ease;
+     transition-delay: 150ms;
+   }
+
+   &.card-login {
+     left: 0;
+   }
+
+   &.card-register {
+     left: 360px;
+
+     .title {
+       color: $medgreen;
+       text-shadow: 2px 2px 0 $green;
+     }
+   }
+ }
+
+ &[data-active-card="register"] {
+   height: 565px;
+
+   .transition-animation {
+     background-color: $green;
+     left: -360px;
+   }
+
+   div[class*="card-"] {
+     &.card-login {
+       left: -360px;
+     }
+
+     &.card-register {
+       left: 0;
+     }
+   }
+ }
+}
+
+// Similars
+.btn-default {
+ @include size(100%, 40px);
+ background: $medgreen;
+ border: none;
+ color: $white;
+ cursor: pointer;
+ text-transform: uppercase;
+ font-family: inherit;
+ font-weight: 700;
+ position: relative;
+ overflow: hidden;
+ text-shadow: 0 2px 0 $green;
+ transition: all 80ms ease;
+
+ span {
+   position: absolute;
+   right: -30px;
+   transform: translateX(0) scale(0);
+   transition: all 150ms ease;
+ }
+
+ &.btn-invert {
+   background: $gray;
+   text-shadow: 0 2px 0 $medgreen;
+ }
+
+ &:hover {
+   background: $green;
+   box-shadow: 2px 3px 0 0 $medgreen;
+   text-shadow: 0 2px 0 $medgreen;
+   transform: translate(-2px, -3px);
+
+   span {
+     transform: translateX(-45px) scale(1);
+   }
+ }
+
+ &.active {
+   pointer-events: none;
+
+   span {
+     margin-top: -10px;
+     left: 50%;
+     right: initial;
+     transform: translateX(-50%) scale(1);
+   }
+ }
+}
