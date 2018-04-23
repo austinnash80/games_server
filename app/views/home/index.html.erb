@@ -1,12 +1,5 @@
 <h1>Home#index</h1>
 
 
-%ul.nav.nav-tabs
-    %li.active
-      %a#home-tab{ :href => "<%= home_path %>", :role => "tab"} Homepage
-    %li.active
-      %a#home-tab{ :href => "<%= account_path %>", :role => "tab"} Account
-    %li.active
-      %a#home-tab{:href => "<%= dashboard_path %>", :role => "tab"} Dashboard
-.tab-content
+
    <p>The name of current tab is <%= current_tab %>.</p>

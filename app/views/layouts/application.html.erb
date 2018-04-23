@@ -13,11 +13,12 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
-    <title>Games Server</title>
+    <title>SHERPA v.1.0.1</title>
 
   </head>
   <body>
-
+    <div class="wrapper" id="wrapper">  <p class="announcement">
+      <div class="card-group" id="card-group" data-active-card="login">
     <div class="loggy">
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
@@ -37,5 +38,7 @@
     <% end %>
 
     <%= yield %>
+  </div>
+  </div>
   </body>
 </html>
