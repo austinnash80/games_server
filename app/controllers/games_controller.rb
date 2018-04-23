@@ -5,11 +5,6 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
-
-    url = "https://www.boardgamegeek.com/xmlapi/search?search=:#{params[:boardgame]}"
-    info = HTTParty.get url
-    @games = info["yearpublished"]["minplayers"]["maxplayers"]["age"]
-
   end
 
   # GET /games/1

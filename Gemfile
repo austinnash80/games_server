@@ -38,6 +38,7 @@ gem 'rails_12factor'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'httparty'
+gem 'stripe'
 
 gem "tabs_on_rails"
 

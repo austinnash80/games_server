@@ -51,7 +51,7 @@ $dark-gray: #333;
 
 .card-group {
  @include absolute-center(50%);
- @include size(360px, 495px);
+ @include size(800px, 800px);
  background-color: $white;
  border-radius: 5px;
  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.15);

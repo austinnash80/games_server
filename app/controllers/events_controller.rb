@@ -3,10 +3,12 @@ require 'pry'
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   set_tab :events
+  set_tab :charges
   # GET /events
   # GET /events.json
   def index
      @events = Event.all
+
     end
 
   # GET /events/1
@@ -17,7 +19,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    # 
+    #
 
   end
 
@@ -49,7 +51,7 @@ class EventsController < ApplicationController
     #   @userobject[@index] = user
     #   @index = @index + 1
     # end
-    match = User.where(sherpa: true, game: @event.game_id) 
+    match = User.where(sherpa: true, game: @event.game_id)
 
   end
 
