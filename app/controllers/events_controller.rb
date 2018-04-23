@@ -1,11 +1,13 @@
+require 'pry'
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-  end
+     @events = Event.all
+    end
 
   # GET /events/1
   # GET /events/1.json
@@ -15,6 +17,8 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    # 
+
   end
 
   # GET /events/1/edit
@@ -35,6 +39,18 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
+    # check for match with sherpa
+
+    currentd = Date.parse(@event.date.to_s)
+    # @index = 0
+    # @userobject = []
+    # User.all.each do |user|
+    #   @userobject[@index] = user
+    #   @index = @index + 1
+    # end
+    match = User.where(sherpa: true, game: @event.game_id) 
+
   end
 
   # PATCH/PUT /events/1
