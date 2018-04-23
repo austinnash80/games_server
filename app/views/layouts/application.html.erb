@@ -17,17 +17,6 @@
 
   </head>
   <body>
-    <%= tabs_tag do |tab| %>
-    <%= tab.home      'Homepage', root_path %>
-
-    <%= tab.account   'Events', events_path %>
-    <% end %>
-
-    <ul>
-      <li><a href="/">Homepage</a></li>
-      <li><a href="/events">Events</a></li>
-
-    </ul>
 
     <div class="loggy">
       <% if user_signed_in? %>
