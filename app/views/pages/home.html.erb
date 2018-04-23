@@ -1,6 +1,6 @@
 Welcome to Games Sherpa.
 
 <% if @current_user.present? && @displayed_msg_flag != true %>
-    Welcome back <%= @current_user.email %>
+    Welcome back <%= @current_user.name || @current_user.email%>
     <% @displayed_msg_flag = true%>
 <% end %>
