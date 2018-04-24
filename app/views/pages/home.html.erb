@@ -6,3 +6,15 @@ Welcome to Games Sherpa.
     Welcome back <%= @current_user.name || @current_user.email%>
     <% @displayed_msg_flag = true%>
 <% end %>
+
+<% if @current_user.player == true %>
+  <div class="palyer">
+    You are a player
+  </div>
+<% end %>
+
+<% if @current_user.sherpa == true %>
+  <div class="sherpa">
+    You are a Sherpa
+  </div>
+<% end %>
