@@ -15,16 +15,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :sherpa %>
-    <%= f.check_box :sherpa, id: :user_sherpa %>
-  </div>
-
-  <div class="field">
-    <%= f.label :player %>
-    <%= f.check_box :player, id: :user_player %>
-  </div>
-
-  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -38,7 +28,7 @@
   </div>
 
   <div>
-    Please select only one.  
+    Please select only one.
   </div>
 
   <div class="field">
