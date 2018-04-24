@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron text-center">
-  <h1>Your New Event</h1>
+  <h1>Select/Meet your Sherpa</h1>
+  <p>we need to pass the Sherpa ID into the Events Table</p>
 </div>
+
+<div class="field">
+  Event Host: <strong><%= current_user.name %></strong>
+</div>
+
 <p>
   <strong>Date:</strong>
   <%= @event.date %>
@@ -18,20 +24,7 @@
   <%= @event.location %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @event.user_id %>
-</p>
 
-<p>
-  <strong>Sherpa:</strong>
-  <%= @event.sherpa_id %>
-</p>
 
-<p>
-  <strong>Game:</strong>
-  <%= @event.game_id %>
-</p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= render 'form2', event: @event %>

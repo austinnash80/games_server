@@ -17,36 +17,17 @@
     <%= form.number_field :user_id, id: :event_user_id, value: current_user.id, class: 'display-none' %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     Event Game: <strong> <%= params[:game_name] %> </strong>
     <% form.label :game_id %>
     <%= form.number_field :game_id, id: :event_game_id, value: params[:game_id], class: 'display-none' %>
-  </div>
+  </div> -->
+
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :event_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.time_select :time, id: :event_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :event_location, placeholder: "ex: manly" %>
-  </div>
-
-  <!-- <div class="field">
     <%= form.label :sherpa_id %>
-    <%= form.number_field :sherpa_id, id: :event_sherpa_id, placeholder: "Select on next page" %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= form.label :game_id %>
-    <%= form.number_field :game_id, id: :event_game_id, value: params[:game_id] %>
-  </div> -->
+    <%= form.number_field :sherpa_id, id: :event_sherpa_id, placeholder: "Pass in here" %>
+  </div>
 
 
   <div class="actions">
