@@ -20,14 +20,14 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.name %></td>
-        <td><%= game.min_players %></td>
-        <td><%= game.max_players %></td>
-        <td><%= game.age %></td>
-        <td><%= game.playing_time %></td>
-        <td><%= game.category %></td>
-        <td><%= game.description %></td>
-        <td><%= game.image %></td>
+        <td><% if game.name.present? %><%= game.name %><% end %></td>
+        <td><% if game.min_players.present? %><%= game.min_players %><% end %></td>
+        <td><% if game.max_players.present? %><%= game.max_players %><% end %></td>
+        <td><% if game.age.present? %><%= game.age %><% end %></td>
+        <td><% if game.playing_time.present? %><%= game.playing_time %><% end %></td>
+        <td><% if game.category.present? %><%= game.category %><% end %></td>
+        <td><% if game.description.present? %><%= game.description %><% end %></td>
+        <td><% if game.image.present? %><%= game.image %><% end %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
