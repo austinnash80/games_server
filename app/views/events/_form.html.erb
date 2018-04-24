@@ -12,6 +12,18 @@
   <% end %>
 
   <div class="field">
+    Event Host: <strong><%= current_user.name %></strong>
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :event_user_id, value: current_user.id, class: 'display-none' %>
+  </div>
+
+  <div class="field">
+    Event Game: <strong> <%= @game_name %> </strong> (from previous page)
+    <% form.label :game_id %>
+    <% form.number_field :game_id, id: :event_game_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date, id: :event_date %>
   </div>
@@ -23,25 +35,22 @@
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location, id: :event_location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :event_user_id %>
+    <%= form.text_field :location, id: :event_location, placeholder: "ex: manly" %>
   </div>
 
   <div class="field">
     <%= form.label :sherpa_id %>
-    <%= form.number_field :sherpa_id, id: :event_sherpa_id %>
+    <!-- Add selected sherpa as the value eg. value: current_sherpa.id-->
+    <%= form.number_field :sherpa_id, id: :event_sherpa_id, placeholder: "Select on next page" %>
   </div>
 
   <div class="field">
     <%= form.label :game_id %>
-    <%= form.number_field :game_id, id: :event_game_id %>
+    <!-- Add selected game as the value eg. value: current_game.id-->
+    <%= form.number_field :game_id, id: :event_game_id, placeholder: "Will be pre-filled above" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Select Your Sherpa", class: 'btn btn-primary' %>
   </div>
 <% end %>
