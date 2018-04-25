@@ -68,6 +68,15 @@ class GamesController < ApplicationController
   end
 
   private
+  def fetch_game(title)
+    # find the id
+    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
+    id = info["boardgames"]["boardgame"].first["objectid"]
+
+    # find the info that id
+    game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
+    return game
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
