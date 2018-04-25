@@ -24,14 +24,17 @@ class UsersController < ApplicationController
   end
 
   def updatedb
-  # Update values in database after form submitted with new location, name, availability
 
+    # Update values in database after form submitted with new location, name, availability
+    # This section is not working yet, needs fixing
     if params[:id] != nil
       @user = User.find_by_id(params[:id])
       @user.location = params[:location]
       @user.name = params[:name]
-      @User.available = params[:available]
+      @user.available = params[:available]
+      @user.save!
     end
+    
   end
 
   # POST /users
