@@ -75,6 +75,10 @@ class GamesController < ApplicationController
 
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
+    @game_thumbnail = game["boardgames"]["boardgame"]["thumbnail"]
+    @game_image = game["boardgames"]["boardgame"]["thumbnail"]
+    
+
     return game
   end
     # Use callbacks to share common setup or constraints between actions.
