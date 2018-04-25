@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/edit_user' => 'users#edit'
   get '/pages/display_selection' => 'pages#display_selection'
   post '/users' => 'pages#home'
+  post '/edit_user' => 'users#edit'
 
   resources :users
   # match 'users/:id', :to => 'users#show', :as => :profile
