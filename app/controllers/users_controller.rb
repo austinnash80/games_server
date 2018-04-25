@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
 
-    # Update values in database after form submitted
+    # Update values in database after form submitted with new location, name, availability
     #
     # if params[:id] != nil
     #   @user = User.find_by_id(params[:id])
