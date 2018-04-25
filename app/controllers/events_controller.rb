@@ -7,8 +7,20 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-     @events = Event.all
+     @events = Event.none
+     # if params[:seq_number]
+     #  @updates = Update.where(seq_number: params[:seq_number])
 
+     if params[:user_id]
+           @events = Event.where(user_id: params[:user_id])
+    else
+        # @events = Event.all
+      end
+     # if user_signed_in? && current_user.player == true
+     #   @events = Event.first
+     # else
+     #   @events = Event.all
+     # end
     end
 
   # GET /events/1
