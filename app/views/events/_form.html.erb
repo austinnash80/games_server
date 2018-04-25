@@ -2,7 +2,6 @@
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
       <% event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -18,9 +17,11 @@
   </div>
 
   <div class="field">
-    Event Game: <strong> <%= @game_name %> </strong> (from previous page)
-    <% form.label :game_id %>
-    <% form.number_field :game_id, id: :event_game_id %>
+    <%# <%= Event Game: <strong> params[:game_name] </strong> %>
+    Event Game:
+    <%= form.label :game_id %>
+    <%#= form.number_field :game_id, id: :event_game_id, value: params[:game_id], class: 'display-none' %>
+    <%= form.number_field :game_id, id: :game_id %>
   </div>
 
   <div class="field">
@@ -38,19 +39,18 @@
     <%= form.text_field :location, id: :event_location, placeholder: "ex: manly" %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :sherpa_id %>
-    <!-- Add selected sherpa as the value eg. value: current_sherpa.id-->
     <%= form.number_field :sherpa_id, id: :event_sherpa_id, placeholder: "Select on next page" %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :game_id %>
-    <!-- Add selected game as the value eg. value: current_game.id-->
-    <%= form.number_field :game_id, id: :event_game_id, placeholder: "Will be pre-filled above" %>
-  </div>
+    <%= form.number_field :game_id, id: :event_game_id, value: params[:game_id] %>
+  </div> -->
+
 
   <div class="actions">
-    <%= form.submit "Select Your Sherpa", class: 'btn btn-primary' %>
+    <%= form.submit "Select Game Sherpa", class: 'btn btn-primary' %>
   </div>
 <% end %>
