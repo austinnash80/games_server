@@ -33,7 +33,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
 
-        # code not saving sherpa_id to database yet 
         currentd = Date.parse(@event.date.to_s)
         match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
         @event.sherpa_id = match.id
