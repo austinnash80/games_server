@@ -8,8 +8,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
      @events = Event.all
-
-    end
+  end
 
   # GET /events/1
   # GET /events/1.json
@@ -20,7 +19,6 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     #
-
   end
 
   # GET /events/1/edit
@@ -34,24 +32,29 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+
+        currentd = Date.parse(@event.date.to_s)
+        match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
+        @event.sherpa_id = match.id
+        @event.save!
+
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.json { render :show, status: :created, location: @event}
+
       else
-        format.html { render :new }
+
+        format.html  { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    # check for match with sherpa - comes here after "select sherpa clicked" on new.html.erb, goes to show.html.erb
 
-    # check for match with sherpa
-
-    currentd = Date.parse(@event.date.to_s)
     # @index = 0
     # @userobject = []
     # User.all.each do |user|
     #   @userobject[@index] = user
     #   @index = @index + 1
     # end
-    match = User.where(sherpa: true, game: @event.game_id)
 
   end
 

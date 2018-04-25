@@ -1,4 +1,5 @@
 <div class="jumbotron text-center">
+
 <h1>Welcome to Games Sherpa</h1>
 <% if @current_user.player == true %>
   <div class="">
@@ -6,7 +7,6 @@
   </div>
 <% end %>
 </div>
-
 
 <% if @current_user.present? && @displayed_msg_flag != true %>
     Welcome back <%= @current_user.name || @current_user.email%>
