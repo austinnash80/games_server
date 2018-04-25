@@ -37,9 +37,10 @@ class EventsController < ApplicationController
         currentd = Date.parse(@event.date.to_s)
         match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
         @event.sherpa_id = match.id
+        @event.save!
 
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.json { render :show, status: :created, location: @event}
 
       else
 
