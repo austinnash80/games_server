@@ -21,16 +21,17 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
 
-    # Update values in database after form submitted with new location, name, availability
-    #
-    # if params[:id] != nil
-    #   @user = User.find_by_id(params[:id])
-    #   @user.location = params[:location]
-    #   @user.name = params[:name]
-    #   @User.available = params[:available]
-    # end
+  def updatedb
+  # Update values in database after form submitted with new location, name, availability
 
+    if params[:id] != nil
+      @user = User.find_by_id(params[:id])
+      @user.location = params[:location]
+      @user.name = params[:name]
+      @User.available = params[:available]
+    end
   end
 
   # POST /users
@@ -51,7 +52,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
