@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   get '/links' => 'pages#links'
   get '/aboutus' => 'pages#aboutus'
   get '/contact' => 'pages#contact'
+  get '/edit_user' => 'users#edit'
   get '/pages/display_selection' => 'pages#display_selection'
   post '/users' => 'pages#home'
 
   resources :users
+  # match 'users/:id', :to => 'users#show', :as => :profile
+  # resources :edit_user
+
   resources :events
   resources :games
   resources :charges 
-
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

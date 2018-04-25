@@ -34,14 +34,12 @@
       </nav>
       <% end %>
 
-
-
-
       <% if user_signed_in? && current_user.sherpa == true %>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-        Logged in as a sherpa: <strong><%= current_user.name || current_user.email %></strong>.
-        <%= link_to "Edit Profile", edit_user_path(@user), :class => 'navbar-link' %> |
+        Logged in as a sherpa: <strong><%= current_user.name || current_user.email %></strong>
+        <%= link_to "Edit Profile", user_path(current_user), :class => 'navbar-link' %> |
+        <%# <%= link_to "Edit Profile", user_path(current_user.id), :class => 'navbar-link' %> | %>
         <%= link_to "Events", events_path, :class => 'navbar-link' %> |
         <%= link_to "Games", games_path, :class => 'navbar-link' %> |
         <%= link_to 'Edit Account', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -49,9 +47,6 @@
       </div>
       </nav>
       <% end %>
-
-
-
 
       <% if user_signed_in?  %>
       <% else %>
@@ -62,9 +57,6 @@
       </div>
       </nav>
       <% end %>
-
-
-
 
     </div>
     <% if notice %>
