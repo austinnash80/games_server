@@ -12,6 +12,11 @@ class EventsController < ApplicationController
 
   # GET /events/1
   # GET /events/1.json
+  def add_child
+    binding.pry
+  end
+
+  
   def show
 
     # set sherpa for event after user selected that sherpa
