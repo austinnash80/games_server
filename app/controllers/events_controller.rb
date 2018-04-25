@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     binding.pry
   end
 
-  
+ 
   def show
 
     # set sherpa for event after user selected that sherpa
@@ -27,8 +27,6 @@ class EventsController < ApplicationController
     currentd = Date.parse(@event.date.to_s)
     @match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
     @outputname = User.find_by(id: @match.id).name
-
-
 
   end
 
@@ -105,4 +103,5 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:date, :time, :location, :user_id, :sherpa_id, :game_id)
     end
+
 end
