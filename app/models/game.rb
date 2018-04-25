@@ -13,6 +13,7 @@
 #  image        :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  bggid        :integer
 #
 
 class Game < ApplicationRecord
