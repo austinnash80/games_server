@@ -55,8 +55,4 @@
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
 <div>
-<<<<<<< HEAD
-<%= link_to 'Select This Game for Your Event', new_event_path(:game_id), class: 'btn btn-primary' %>
-=======
 <%= link_to 'Select This Game for Your Event', new_event_path(:game_id => @game.id, :game_name => @game.name), class: 'btn btn-primary' %>
->>>>>>> 8d7846a9bf8f0d06ffe1e7e6f9c2c4c008fbfacb
