@@ -22,15 +22,30 @@
     <% form.label :game_id %>
     <%= form.number_field :game_id, id: :event_game_id, value: params[:game_id], class: 'display-none' %>
   </div> -->
-
-
+<%# 
   <div class="field">
     <%= form.label :sherpa_id %>
-    <%= form.number_field :sherpa_id, id: :sherpa_id, placeholder: "Pass in here" %>
-  </div>
+    <%# <%= form.number_field :sherpa_id, id: :sherpa_id, placeholder: "Pass in here" %>
+
+
 
 
   <div class="actions">
     <%= form.submit "Select Game Sherpa", class: 'btn btn-primary' %>
   </div>
+<% end %>
+
+
+<%= form_tag do %>
+
+  <fieldset>
+    <%= label_tag :name %>
+    <%= select_tag :sherpa_id, options_for_select(User.pluck(:name, :id)), :include_blank => true %>
+  </fieldset>
+
+  <div class="form-group">
+    <label></label>
+    <%= submit_tag nil, :class => 'btn btn-info'  %>
+  </div>
+
 <% end %>

@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
-Sherpa matched to your event:
-<%= User.find_by(id: @event.sherpa_id).name %>
+Suggested sherpa for your event:
+<p>
+<%= @outputname %>
+</p>
+
 <div class="jumbotron text-center">
   <h1>Select/Meet your Sherpa</h1>
 
