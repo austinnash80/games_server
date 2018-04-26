@@ -28,10 +28,13 @@ class EventsController < ApplicationController
   end
 
   def finishmatch
-    # Mailer code goes here - send invite to sherpa
+
     @event = Event.where(user_id: current_user.id).last
     @event.sherpa_id = params[:sherpa_id]
     @event.save
+
+    # Mailer code goes here - send invite to sherpa
+
   end
 
   # GET /events/1
