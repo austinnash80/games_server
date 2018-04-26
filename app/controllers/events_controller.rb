@@ -45,6 +45,7 @@ class EventsController < ApplicationController
 =======
 >>>>>>> 95905d1f326a725782372356bca6b6e439bdea7d
 
+
   end
 
   # GET /events/new
