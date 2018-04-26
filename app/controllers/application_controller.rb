@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
-
   # before_action
 
   before_action :authenticate_user!
@@ -8,6 +7,5 @@ class ApplicationController < ActionController::Base
   def reload_route
     Rails.application.reload_routes!
   end
-
 
 end
