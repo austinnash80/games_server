@@ -5,7 +5,7 @@ A web app designed to help anyone who enjoys playing board games. Create an even
 
 Are you really into board games? Know the (real) Monopoly rules? Are you an experienced D&D Dungeon Master? Register as a Sherpa and get paid for your time.
 
-Register as a Sherpa or a Make an event as a player here on <a href="https://sherpa-app.herokuapp.com/" target="_blank">Heroku</a>
+Register as a Sherpa or a Make an event as a player here on <a href="https://sherpa-app.herokuapp.com/", target="_blank" >Heroku</a>
 
 
 ### Behind the scenes
