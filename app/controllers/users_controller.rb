@@ -6,7 +6,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.none
+
+    if params[:name]
+      @users = User.where(name: params[:name])
+    end
+    # @users = User.first
+
+    # if params[:current_user]
+    #       @users = User.where(current_user: params[:current_user])
+    #
+    #     end
   end
 
   # GET /users/1
@@ -48,7 +58,7 @@ class UsersController < ApplicationController
   def update
 
     game = Game.find_by(params[:game_id])
-    game.users << current_user     
+    game.users << current_user
 
     respond_to do |format|
       if @user.update(user_params)

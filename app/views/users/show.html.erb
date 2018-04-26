@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -24,6 +25,12 @@
   <strong>Available:</strong>
   <%= @user.available %>
 </p>
+
+<p>
+  <strong>Your Games:</strong>
+  <%= @user.games.first.try(:name) %>
+</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
