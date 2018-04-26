@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<div class="jumbotron text-center">
+<h1>Your Sherpa Account</h1>
+</div>
 
-<table>
-  <thead>
+<!-- <%= form_tag users_path, :method => 'get' do %>
+<p>
+    <%= text_field_tag :name, params[:name], value: current_user.name %>
+    <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+  </p>
+<% end %> -->
+
+
+<table class="table table-hover">
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Player</th>
-      <th>Sherpa</th>
+      <th>Your Name</th>
+      <!-- <th>Player</th>
+      <th>Sherpa</th> -->
       <th>Location</th>
-      <th>Available</th>
+      <th>Availability </th>
+      <th>Your Games</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +29,15 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.player %></td>
-        <td><%= user.sherpa %></td>
+        <!-- <td><%= user.player %></td>
+        <td><%= user.sherpa %></td> -->
         <td><%= user.location %></td>
         <td><%= user.available %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.games.first.try(:name) %></td>
+
+        <!-- <td><%= link_to 'Show', user %></td> -->
+        <td><%= link_to 'Edit Account Info And Add Games', edit_user_path(user) %></td>
+        <!-- <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<!-- <%= link_to 'New User', new_user_path %> -->
