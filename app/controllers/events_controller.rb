@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -13,14 +13,14 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def add_child
-    binding.pry
+    # binding.pry
   end
 
- 
+
   def show
 
     # set sherpa for event after user selected that sherpa
-    
+
     # @event.sherpa_id = @match.id
     # @event.save!
 
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
 
         format.html  { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
- 
+
       end
     end
     # check for match with sherpa - comes here after "select sherpa clicked" on new.html.erb, goes to show.html.erb
