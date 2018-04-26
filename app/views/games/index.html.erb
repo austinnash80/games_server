@@ -35,7 +35,7 @@
         <!-- <td><%= game.image %></td> -->
         <td><%= link_to 'Select', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Chat', new_chat_room_path %></td>
+        <td><%= link_to 'Chat', chat_room_path(index_chat_rooms_on_user_id) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
