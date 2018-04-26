@@ -22,10 +22,16 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = current_user
-    @user.location = params[:location]
-    @user.name = params[:name]
-    @user.available = params[:available]
-    @user.save!
+    if params[:location] != ""
+      @user.location = params[:location]
+    end
+    if params[:name] != ""
+      @user.name = params[:name]
+    end
+    if params[:available] != ""
+      @user.available = params[:available]
+    end
+
   end
 
   # POST /users
