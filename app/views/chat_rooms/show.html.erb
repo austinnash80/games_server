@@ -1,4 +1,8 @@
-<h1><%= @chat_room.title %></h1>
+
+<div class="jumbotron text-center">
+<h1><%= @chat_room.title%> Chat Room</h1>
+</div>
+
 
 <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
   <%= render @chat_room.messages %>
