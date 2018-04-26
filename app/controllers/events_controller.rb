@@ -7,23 +7,29 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-     @events = Event.none
-     # if params[:seq_number]
-     #  @updates = Update.where(seq_number: params[:seq_number])
+    @events = Event.where(user_id: current_user.id)
 
-    if params[:user_id]
-           @events = Event.where(user_id: params[:user_id])
-    else
-        # @events = Event.all
-    end
-     # if user_signed_in? && current_user.player == true
-     #   @events = Event.first
-     # else
-     #   @events = Event.all
-     # end
+    # @events = Event.none
+    # if params[:seq_number]
+    #  @updates = Update.where(seq_number: params[:seq_number])
+
+    # if params[:user_id]
+      # @events = Event.where(user_id: params[:user_id])
+    # else
+    #   @events = Event.all
+    # end
+    # if user_signed_in? && current_user.player == true
+    #   @events = Event.first
+    # else
+    #   @events = Event.all
+    # end
+    #  Event.where(id: current_user.id)
+
   end
 
   def finishmatch
+    # Mailer code goes here - send invite to sherpa
+
   end
 
   # GET /events/1
