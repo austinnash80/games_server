@@ -1,4 +1,5 @@
 # require 'pry'
+require 'digest/md5'
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy], :optional => true
@@ -12,6 +13,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+
+  def gravatar_url_for(email, size=64)
+    hash = Digest::MD5.hexdigest(email)
+    "http:///gravatar.com/avatar/#{hash}?s=#{size}"
   end
 
   # # GET /users/new
@@ -48,7 +54,7 @@ class UsersController < ApplicationController
   def update
 
     game = Game.find_by(params[:game_id])
-    game.users << current_user     
+    game.users << current_user
 
     respond_to do |format|
       if @user.update(user_params)
