@@ -26,7 +26,6 @@ class GamesController < ApplicationController
   end
 
   def result
-
     title = params[:title]
     # find the id
     info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
@@ -53,12 +52,12 @@ class GamesController < ApplicationController
       @max_players= game["boardgames"]["boardgame"]["maxplayers"]
       @age = game["boardgames"]["boardgame"]["age"]
       @playing_time = game["boardgames"]["boardgame"]["playingtime"]
-    end 
+    end
     # return game
     list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
         @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time)
-end
+    end
 
 
 
