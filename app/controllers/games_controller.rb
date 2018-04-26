@@ -77,11 +77,13 @@ class GamesController < ApplicationController
 
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    @game_thumbnail = game["boardgames"]["boardgame"]["thumbnail"]
-    @game.image = game["boardgames"]["boardgame"]["thumbnail"]
-
-
-    return game
+    @image = game["boardgames"]["boardgame"]["image"]
+    @description = game["boardgames"]["boardgame"]["description"]
+    @min_players = game["boardgames"]["boardgame"]["minplayers"]
+    @max_players= game["boardgames"]["boardgame"]["maxplayers"]
+    @age = game["boardgames"]["boardgame"]["age"]
+    @playing_time = game["boardgames"]["boardgame"]["playingtime"]
+    # return game
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_game

@@ -4,13 +4,6 @@
 </div>
 
 
-<%= form_tag users_path, :method => 'get' do %>
-<p>
-    <%= text_field_tag :name, params[:name], placeholder: 'name' %>
-    <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
-  </p>
-<% end %>
-
 
 
 <table class="table table-hover">
