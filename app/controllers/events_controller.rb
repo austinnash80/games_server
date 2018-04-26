@@ -41,7 +41,6 @@ class EventsController < ApplicationController
     @event.sherpa_id = @match.id
     @event.save!
 
-
   end
 
   # GET /events/new
