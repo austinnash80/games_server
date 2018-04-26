@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :events
   resources :games
   resources :charges
-  resources :chat_rooms, only: [:new, :create, :show, :index]
+  resources :chat_rooms, only: [:new, :create, :show, :index, :destroy]
 
   mount ActionCable.server => '/cable'
 

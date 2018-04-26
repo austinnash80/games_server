@@ -44,4 +44,3 @@ module GamesServer
     end
   end
 end
-end
