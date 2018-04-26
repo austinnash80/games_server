@@ -34,7 +34,7 @@ class GamesController < ApplicationController
 
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    @name = game["boardgames"]["boardgame"]["name"]
+    @name = game["boardgames"]["boardgame"]["name"][0]["__content__"]
     @image = game["boardgames"]["boardgame"]["image"]
     @description = game["boardgames"]["boardgame"]["description"]
     @min_players = game["boardgames"]["boardgame"]["minplayers"]
@@ -42,12 +42,11 @@ class GamesController < ApplicationController
     @age = game["boardgames"]["boardgame"]["age"]
     @playing_time = game["boardgames"]["boardgame"]["playingtime"]
     # return game
-
-    if Game.find('boardgame.name' => @name)
+    list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
         @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time)
-    end
-  end
+end
+
 
   # POST /games
   # POST /games.json
