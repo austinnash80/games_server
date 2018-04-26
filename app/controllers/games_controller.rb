@@ -28,6 +28,7 @@ class GamesController < ApplicationController
   end
 
   def result
+
     title = params[:title]
     # find the id
     info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
