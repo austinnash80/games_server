@@ -22,29 +22,18 @@
     </tr>
   </thead>
 
-  <form id="search">
-        <input type="search" id="query" value="Board Game" autofocus>
-        <button>Search</button>
-      </form>
-      <p id="data"></p>
+  <div class="form-page">
+  <h1>Search for a board game</h1>
 
-  <script>
-  const $data = $('#data'); //
-
-$.getJSON({
-  url: 'https://boardgamegeek.com/xmlapi/boardgame/?&stats=1', // get request for API from following url
-  success: function(data) { // success function - passes the returned data in text status of the response
-    $.each(data, function(i, element){ // each function - goes through each item in an array and runs a function for each item and query
-      $data.append(`'<p>Name: ${element.boardgames}</p>'`);
-      $data.append(`'<p>Region: ${element.boardgames.boardgame.age}</p>'`);
-      $data.append(`'<p>Titles: ${element.boardgames.boardgame.playingtime}</p>'`);
-      $data.append(`'<p>Seat: ${element.seats}</p>'`);
-      $data.append(`'<p>Lord: ${element.currentLord}</p>'`);
-      $data.append(`'<p>Heir: ${element.heir}</p>'`);
-    });
-  }
-});
-</script>
+  <form action="/games/result">
+    <label>Enter a board game:</label>
+    <input type="text" name="game_title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
+    <button>Search</button>
+    <div class="stop-right-there">
+      <%= flash[:notice] %>
+    </div>
+  </form>
+</div>
 
   <tbody>
     <% @games.each do |game| %>

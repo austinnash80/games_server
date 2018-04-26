@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
   get '/edit_user' => 'users#edit'
   get '/pages/display_selection' => 'pages#display_selection'
+  get '/games/result' => 'games#result'
 
   post '/users' => 'pages#home'
   post '/edit_user' => 'users#edit'

@@ -9,13 +9,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
-    raise 'hell'
-
   end
-
-
-
-
 
   # GET /games/1
   # GET /games/1.json
@@ -31,6 +25,29 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+  end
+
+  def result
+    title = params[:title]
+    # find the id
+    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
+    id = info["boardgames"]["boardgame"][0]
+
+    # find the info that id
+    game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
+    @name = game["boardgames"]["boardgame"]["name"]
+    @image = game["boardgames"]["boardgame"]["image"]
+    @description = game["boardgames"]["boardgame"]["description"]
+    @min_players = game["boardgames"]["boardgame"]["minplayers"]
+    @max_players= game["boardgames"]["boardgame"]["maxplayers"]
+    @age = game["boardgames"]["boardgame"]["age"]
+    @playing_time = game["boardgames"]["boardgame"]["playingtime"]
+    # return game
+
+    if Game.find('boardgame.name' => @name)
+      # redirect them to the show page for that boardgame so they can add that game to their shelf from there
+        @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time)
+    end
   end
 
   # POST /games
@@ -73,22 +90,11 @@ class GamesController < ApplicationController
     end
   end
 
-  private
-  def fetch_game(title)
-    # find the id
-    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
-    id = info["boardgames"]["boardgame"].first["objectid"]
 
-    # find the info that id
-    game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    @image = game["boardgames"]["boardgame"]["image"]
-    @description = game["boardgames"]["boardgame"]["description"]
-    @min_players = game["boardgames"]["boardgame"]["minplayers"]
-    @max_players= game["boardgames"]["boardgame"]["maxplayers"]
-    @age = game["boardgames"]["boardgame"]["age"]
-    @playing_time = game["boardgames"]["boardgame"]["playingtime"]
-    # return game
-  end
+
+
+
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
@@ -96,6 +102,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :min_players, :max_players, :age, :playing_time, :category, :description, :image)
+      params.require(:game).permit(:name, :min_players, :max_players, :age, :playing_time, :description, :image)
     end
 end
