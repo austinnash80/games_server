@@ -18,12 +18,17 @@
     <%= form.number_field :user_id, id: :event_user_id, value: current_user.id, class: 'display-none' %>
   </div>
 
+  <div class="field">
+    Event Game: <strong><%= params[:game_name]  %></strong>
+
+  </div>
+
   <!-- <div class="field">
     Event Game: <strong> <%= params[:game_name] %> </strong>
     <% form.label :game_id %>
     <%= form.number_field :game_id, id: :event_game_id, value: params[:game_id], class: 'display-none' %>
   </div> -->
-<%# 
+<%#
   <div class="field">
     <%= form.label :sherpa_id %>
     <%# <%= form.number_field :sherpa_id, id: :sherpa_id, placeholder: "Pass in here" %>
