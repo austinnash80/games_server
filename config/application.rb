@@ -22,6 +22,7 @@ module CableChat
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+end
 
 module GamesServer
   class Application < Rails::Application
