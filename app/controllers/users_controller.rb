@@ -15,11 +15,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def gravatar_url_for(email, size=64)
-    hash = Digest::MD5.hexdigest(email)
-    "http:///gravatar.com/avatar/#{hash}?s=#{size}"
-  end
-
   # # GET /users/new
   def new
     @user = User.new
