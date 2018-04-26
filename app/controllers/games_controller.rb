@@ -36,7 +36,7 @@ class GamesController < ApplicationController
 
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    @name = game["boardgames"]["boardgame"]["name"]
+    @name = game["boardgames"]["boardgame"]["name"]["__content__"]
     @image = game["boardgames"]["boardgame"]["image"]
     @description = game["boardgames"]["boardgame"]["description"]
     @min_players = game["boardgames"]["boardgame"]["minplayers"]
