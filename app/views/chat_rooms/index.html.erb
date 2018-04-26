@@ -6,3 +6,10 @@
 <ul>
   <%= render @chat_rooms %>
 </ul>
+
+
+<!-- the link to destroy chat room - commented out as player should not have access to this
+<% @chat_rooms.each do |chat_room| %>
+<%= link_to 'Destroy', chat_room, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+-->

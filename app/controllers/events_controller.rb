@@ -40,6 +40,10 @@ class EventsController < ApplicationController
     @outputname = User.find_by(id: @match.id).name
     @event.sherpa_id = @match.id
     @event.save!
+<<<<<<< HEAD
+    # binding.pry
+=======
+>>>>>>> 95905d1f326a725782372356bca6b6e439bdea7d
 
 
   end
