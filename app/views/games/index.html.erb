@@ -5,6 +5,18 @@
 </div>
 
 
+<div class="form-page">
+<h1>Search for a board game</h1>
+
+<form action="/games/result">
+  <label>Enter a board game:</label>
+  <input type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
+  <button>Search</button>
+  <div class="stop-right-there">
+    <%= flash[:notice] %>
+  </div>
+</form>
+</div>
 
 
 <table class="table table-hover">
@@ -22,18 +34,6 @@
     </tr>
   </thead>
 
-  <div class="form-page">
-  <h1>Search for a board game</h1>
-
-  <form action="/games/result">
-    <label>Enter a board game:</label>
-    <input type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
-    <button>Search</button>
-    <div class="stop-right-there">
-      <%= flash[:notice] %>
-    </div>
-  </form>
-</div>
 
   <tbody>
     <% @games.each do |game| %>
