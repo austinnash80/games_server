@@ -39,16 +39,21 @@
 <%= form_tag do %>
 
   <fieldset>
-    <%= label_tag :name %>
+    <strong>
+    <%= label_tag = "Select preferred sherpa:" %>
+    </strong>
+    <br />
 
 <!-- TO DO
-- limit drop down to sherpa: true
 - match on location, availability (implement calendar selection screen)
+- fix broken routing from here
  -->
 
-    <%= select_tag :sherpa_id, options_for_select(User.pluck(:name, :id)), :include_blank => true %>
-  </fieldset>
+    <% @sherpalist = User.where(sherpa: true).where.not(name: nil) %>
+    <%= select_tag :sherpa_id, options_for_select(@sherpalist.pluck(:name, :id)), :include_blank => true %>
 
+  </fieldset>
+  <br />
   <div class="form-group">
     <label></label>
     <%= submit_tag nil, :class => 'btn btn-info'  %>

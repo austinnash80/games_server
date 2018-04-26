@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-
+binding.pry
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event}
 
