@@ -44,8 +44,7 @@ class GamesController < ApplicationController
     @age = game["boardgames"]["boardgame"]["age"]
     @playing_time = game["boardgames"]["boardgame"]["playingtime"]
     # return game
-
-    Game.find('boardgame.name' => @name)
+    list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
         @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time)
   end
