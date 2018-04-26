@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -7,26 +7,39 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-     @events = Event.all
-  end
+     @events = Event.none
+     # if params[:seq_number]
+     #  @updates = Update.where(seq_number: params[:seq_number])
+
+     if params[:user_id]
+           @events = Event.where(user_id: params[:user_id])
+    else
+        # @events = Event.all
+      end
+     # if user_signed_in? && current_user.player == true
+     #   @events = Event.first
+     # else
+     #   @events = Event.all
+     # end
+    end
 
   # GET /events/1
   # GET /events/1.json
   def add_child
-    binding.pry
   end
 
- 
   def show
 
     # set sherpa for event after user selected that sherpa
-    
+
     # @event.sherpa_id = @match.id
     # @event.save!
 
     currentd = Date.parse(@event.date.to_s)
     @match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
     @outputname = User.find_by(id: @match.id).name
+    @event.sherpa_id = @match.id
+    @event.save!
 
   end
 
@@ -54,7 +67,7 @@ class EventsController < ApplicationController
 
         format.html  { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
- 
+
       end
     end
     # check for match with sherpa - comes here after "select sherpa clicked" on new.html.erb, goes to show.html.erb

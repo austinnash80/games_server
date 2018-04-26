@@ -1,4 +1,4 @@
-<h1>Editing User</h1>
+<h1>Edit Profile</h1>
 
 <%= form_with(model: @user, local: true) do |form| %>
   <% @user = current_user %>
@@ -29,6 +29,11 @@
   <div class="field">
     <%= form.label :available %>
     <%= form.text_field :available, id: :user_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :game %>
+    <%= select_tag :game, options_for_select(Game.pluck(:name)), :include_blank => true %>
   </div>
 
   <div class="actions">

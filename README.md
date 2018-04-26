@@ -7,9 +7,10 @@ Are you really into board games? Know the (real) Monopoly rules? Are you an expe
 
 Register as a Sherpa or a Make an event as a player here on [Heroku](https://sherpa-app.herokuapp.com/)
 
+
 ### Behind the scenes
 This a Group Project developed by the following [General Assembly]() Students:
-[Abdul Yusef](https://github.com/oolakunle).
+[Abdul Yusuf](https://github.com/oolakunle).
 [Austin Nash](https://github.com/austinnash80).
 [Bonny Sentrosi](https://github.com/Sentrosi-Git).
 [Ivor King](https://github.com/ivorking).
