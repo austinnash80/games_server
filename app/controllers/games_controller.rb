@@ -4,7 +4,6 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   set_tab :games
 
-
   # GET /games
   # GET /games.json
   def index
@@ -16,7 +15,6 @@ class GamesController < ApplicationController
   def show
     # @game = Game.find_by :name => params[:name]
   end
-
 
   # GET /games/new
   def new
@@ -90,10 +88,6 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-
-
 
 private
     # Use callbacks to share common setup or constraints between actions.

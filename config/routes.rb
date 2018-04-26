@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   get '/edit_user' => 'users#edit'
   get '/pages/display_selection' => 'pages#display_selection'
   get '/games/result' => 'games#result'
+  get '/events/finishmatch' => 'events#finishmatch'
 
   post '/users' => 'pages#home'
   post '/edit_user' => 'users#edit'
-  post '/events/:id/edit' => 'events#add_child'
+  post '/events/:id' => 'events#finishmatch'
 
   resources :users
   # match 'users/:id', :to => 'users#show', :as => :profile
