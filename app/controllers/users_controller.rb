@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
   end
 
   # # GET /users/new
@@ -22,16 +23,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = current_user
-    if params[:location] != ""
-      @user.location = params[:location]
-    end
-    if params[:name] != ""
-      @user.name = params[:name]
-    end
-    if params[:available] != ""
-      @user.available = params[:available]
-    end
-
   end
 
   # POST /users
@@ -65,6 +56,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /users/1
@@ -82,7 +74,6 @@ class UsersController < ApplicationController
     def set_user
       # @user = User.find_by(params[:id])
       @user = User.find_by_id(params[:id])
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

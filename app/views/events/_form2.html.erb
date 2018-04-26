@@ -41,7 +41,10 @@
   <fieldset>
     <%= label_tag :name %>
 
-<!-- Limit drop down to sherpa: true -->
+<!-- TO DO
+- limit drop down to sherpa: true
+- match on location, availability (implement calendar selection screen)
+ -->
 
     <%= select_tag :sherpa_id, options_for_select(User.pluck(:name, :id)), :include_blank => true %>
   </fieldset>
