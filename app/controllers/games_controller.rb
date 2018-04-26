@@ -1,3 +1,5 @@
+require 'jquery-rails'
+
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   set_tab :games
@@ -8,6 +10,8 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
   end
+
+
 
 
 
@@ -75,6 +79,7 @@ class GamesController < ApplicationController
 
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
+    @game_name = game["boardgames"]["boardgame"]["name"]
     @game_thumbnail = game["boardgames"]["boardgame"]["thumbnail"]
     @game.image = game["boardgames"]["boardgame"]["thumbnail"]
 
