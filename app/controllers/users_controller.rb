@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy], :optional => true

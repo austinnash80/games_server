@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -26,9 +26,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def add_child
-
   end
-
 
   def show
 
