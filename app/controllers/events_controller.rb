@@ -26,9 +26,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def add_child
-    # binding.pry
   end
-
 
   def show
 
@@ -40,6 +38,9 @@ class EventsController < ApplicationController
     currentd = Date.parse(@event.date.to_s)
     @match = Game.find_by(id: @event.game_id).users.find_by(sherpa: true)
     @outputname = User.find_by(id: @match.id).name
+    @event.sherpa_id = @match.id
+    @event.save!
+
 
   end
 

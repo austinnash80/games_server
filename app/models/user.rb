@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_and_belongs_to_many :games
 
-  def name
-    email.split('@')[0]
-  end
+  # def name
+  #   email.split('@')[0]
+  # end
 end

@@ -7,7 +7,7 @@
 
 
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -33,7 +33,7 @@
         <td><%= game.category %></td>
         <td><%= game.description %></td>
         <!-- <td><%= game.image %></td> -->
-        <td><%= link_to 'Select', game %></td>
+        <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
