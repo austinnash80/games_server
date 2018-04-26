@@ -1,7 +1,15 @@
-<h1>Chat rooms</h1>
-
+<div class="jumbotron text-center">
+<h1>Chat Room</h1>
+</div>
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>
 
 <ul>
   <%= render @chat_rooms %>
 </ul>
+
+
+<!-- the link to destroy chat room - commented out as player should not have access to this
+<% @chat_rooms.each do |chat_room| %>
+<%= link_to 'Destroy', chat_room, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+-->

@@ -1,1 +1,5 @@
-<li><%= link_to "Enter #{chat_room.title}", chat_room_path(chat_room) %></li>
+<div class="col-sm-3">
+<ul class="list-group">
+<li><%= link_to "#{chat_room.title} Chat Room", chat_room_path(chat_room), class: "list-group-item" %></li>
+<ul>
+</div>
