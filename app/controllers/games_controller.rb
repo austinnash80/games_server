@@ -1,7 +1,7 @@
 require 'jquery-rails'
 
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_game, only: [:show, :edit, :update, :destroy]
   set_tab :games
 
   # GET /games
@@ -40,6 +40,18 @@ class GamesController < ApplicationController
       @max_players= game["boardgames"]["boardgame"]["maxplayers"]
       @age = game["boardgames"]["boardgame"]["age"]
       @playing_time = game["boardgames"]["boardgame"]["playingtime"]
+<<<<<<< HEAD
+    else
+      @name = game["boardgames"]["boardgame"]["name"][0]["__content__"]
+      @image = game["boardgames"]["boardgame"]["image"]
+      @description = game["boardgames"]["boardgame"]["description"]
+      @min_players = game["boardgames"]["boardgame"]["minplayers"]
+      @max_players= game["boardgames"]["boardgame"]["maxplayers"]
+      @age = game["boardgames"]["boardgame"]["age"]
+      @playing_time = game["boardgames"]["boardgame"]["playingtime"]
+    end
+=======
+>>>>>>> 945ce6a6911ec6f0088340cb4424e90e0a26789c
     # return game
     list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
