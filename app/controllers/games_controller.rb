@@ -1,7 +1,7 @@
 require 'jquery-rails'
 
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_game, only: [:show, :edit, :update, :destroy]
   set_tab :games
 
   # GET /games
@@ -31,9 +31,13 @@ class GamesController < ApplicationController
     info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}&exact=1"
       id = info["boardgames"]["boardgame"]["objectid"]
     # find the info that id
-    game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-binding.pry
-      @name = game["boardgames"]["boardgame"]["name"]["__content__"]
+    game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&search=1"
+      @name = game["boardgames"]["boardgame"]["name"]
+      if @name.is_a? Array
+        @name = game["boardgames"]["boardgame"]["name"][0]["__content__"]
+      else
+        @name = game["boardgames"]["boardgame"]["name"]["__content__"]
+      end
       @image = game["boardgames"]["boardgame"]["image"]
       @description = game["boardgames"]["boardgame"]["description"]
       @min_players = game["boardgames"]["boardgame"]["minplayers"]

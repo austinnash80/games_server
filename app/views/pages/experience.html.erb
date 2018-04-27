@@ -1,0 +1,27 @@
+<div class="jumbotron text-center">
+
+<h1>Welcome to Games Sherpa</h1>
+<% if @current_user.player == true %>
+  <div class="">
+    <p>You are a player</p>
+  </div>
+<% end %>
+</div>
+
+<% if @current_user.present? && @displayed_msg_flag != true %>
+    Welcome back <%= @current_user.name || @current_user.email%>
+    <% @displayed_msg_flag = true%>
+<% end %>
+
+<% if @current_user.player == true %>
+  <div class="player">
+    You are a player
+  </div>
+<% end %>
+
+<% if @current_user.sherpa == true %>
+  <div class="sherpa">
+    You are a Sherpa, You need to select your games
+  </div>
+
+<% end %>
