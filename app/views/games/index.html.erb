@@ -5,6 +5,18 @@
 </div>
 
 
+<div class="form-page">
+<h1>Search for a board game</h1>
+
+<form action="/games/result">
+  <label>Enter a board game:</label>
+  <input type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
+  <button>Search</button>
+  <div class="stop-right-there">
+    <%= flash[:notice] %>
+  </div>
+</form>
+</div>
 
 
 <table class="table table-hover">
@@ -22,18 +34,6 @@
     </tr>
   </thead>
 
-  <div class="form-page">
-  <h1>Search for a board game</h1>
-
-  <form action="/games/result">
-    <label>Enter a board game:</label>
-    <input type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
-    <button>Search</button>
-    <div class="stop-right-there">
-      <%= flash[:notice] %>
-    </div>
-  </form>
-</div>
 
   <tbody>
     <% @games.each do |game| %>
@@ -45,7 +45,11 @@
         <td><%= game.playing_time %></td>
         <td><%= game.category %></td>
         <td><%= game.description %></td>
-        <!-- <td><%= game.image %></td> -->
+        <% if game.image.present? %>
+        <td><%= image_tag game.image, :alt => game.name, :class => 'thumb' %></td>
+        <% else %>
+        <td><%= game.name %></td>
+        <% end %>
         <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Chat', new_chat_room_path %></td>
@@ -54,6 +58,7 @@
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 

@@ -22,6 +22,11 @@ span {
   display: none;
 }
 
+.remove {
+  background:none;
+  border:none;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -69,6 +74,10 @@ div {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+.thumb {
+  max-height: 151px;
 }
 
 #error_explanation {
