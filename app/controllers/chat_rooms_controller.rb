@@ -2,6 +2,7 @@ class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
   def index
     @chat_rooms = ChatRoom.all
+    # redirect_to ChatRoom.first
   end
 
   def new
