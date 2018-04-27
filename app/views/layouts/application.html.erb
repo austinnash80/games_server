@@ -24,7 +24,8 @@
       <% if user_signed_in? && current_user.player == true %>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-        <span>Logged in as a Player: <strong><%= current_user.name || current_user.email %></strong></span>
+
+        <span>Player: <strong><%= current_user.name || current_user.email %></strong></span>
         <%= form_tag events_path, :method => 'get' do %>
 
             <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %>
@@ -44,7 +45,8 @@
       <% if user_signed_in? && current_user.sherpa == true %>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-        <span>Logged in as a sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
+          
+        <span>Sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
 
         <%= form_tag users_path, :method => 'get' do %>
 

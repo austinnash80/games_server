@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    
     if user_signed_in? && current_user.player == true
       @events = Event.where(user_id: current_user.id)
     elsif user_signed_in? && current_user.sherpa == true
