@@ -46,7 +46,7 @@
         <td><%= game.category %></td>
         <td><%= game.description %></td>
         <!-- <td><%= game.image %></td> -->
-        <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'View', game, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Chat', new_chat_room_path %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -45,7 +45,7 @@
       <% if user_signed_in? && current_user.sherpa == true %>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-          
+
         <span>Sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
 
         <%= form_tag users_path, :method => 'get' do %>
