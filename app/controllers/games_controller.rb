@@ -32,7 +32,6 @@ class GamesController < ApplicationController
       id = info["boardgames"]["boardgame"]["objectid"]
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    binding.pry
       @name = game["boardgames"]["boardgame"]["name"]["__content__"]
       @image = game["boardgames"]["boardgame"]["image"]
       @description = game["boardgames"]["boardgame"]["description"]
@@ -40,7 +39,6 @@ class GamesController < ApplicationController
       @max_players= game["boardgames"]["boardgame"]["maxplayers"]
       @age = game["boardgames"]["boardgame"]["age"]
       @playing_time = game["boardgames"]["boardgame"]["playingtime"]
-<<<<<<< HEAD
     else
       @name = game["boardgames"]["boardgame"]["name"][0]["__content__"]
       @image = game["boardgames"]["boardgame"]["image"]
@@ -50,8 +48,6 @@ class GamesController < ApplicationController
       @age = game["boardgames"]["boardgame"]["age"]
       @playing_time = game["boardgames"]["boardgame"]["playingtime"]
     end
-=======
->>>>>>> 945ce6a6911ec6f0088340cb4424e90e0a26789c
     # return game
     list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
