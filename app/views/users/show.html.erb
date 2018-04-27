@@ -28,7 +28,7 @@
 
 <p>
   <strong>Your Games:</strong>
-  <%= @user.games.first.try(:name) %>
+  <%= @user.games.last.try(:name) %>
 </p>
 
 

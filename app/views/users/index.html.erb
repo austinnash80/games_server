@@ -33,7 +33,7 @@
         <td><%= user.sherpa %></td> -->
         <td><%= user.location %></td>
         <td><%= user.available %></td>
-        <td><%= user.games.first.try(:name) %></td>
+        <td><%= user.games.last.try(:name) %></td>
 
         <!-- <td><%= link_to 'Show', user %></td> -->
         <td><%= link_to 'Edit Account Info And Add Games', edit_user_path(user) %></td>
