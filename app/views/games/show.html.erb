@@ -48,7 +48,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @game.image %>
+  <%= image_tag @game.image, :alt => @game.name, :class => 'thumb' %>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
