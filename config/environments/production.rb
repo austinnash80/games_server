@@ -96,6 +96,11 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+  # necessary for making chat work on heroku.
+
+  config.action_cable.url = "https://sherpa-app.herokuapp.com/cable"
+
+  config.action_cable.allowed_request_origins = ['https://sherpa-app.herokuapp.com', 'http://localhost:3000']
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
