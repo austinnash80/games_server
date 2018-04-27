@@ -32,6 +32,7 @@ class GamesController < ApplicationController
       id = info["boardgames"]["boardgame"]["objectid"]
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
+    binding.pry
       @name = game["boardgames"]["boardgame"]["name"]["__content__"]
       @image = game["boardgames"]["boardgame"]["image"]
       @description = game["boardgames"]["boardgame"]["description"]
