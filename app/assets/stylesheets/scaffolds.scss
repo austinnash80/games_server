@@ -71,6 +71,10 @@ div {
   display: table;
 }
 
+.thumb {
+  max-height: 151px;
+}
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;

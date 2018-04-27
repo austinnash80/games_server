@@ -28,15 +28,10 @@ class GamesController < ApplicationController
   def result
     title = params[:title]
     # find the id
-    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
-    if info["total_results" == "1"]
+    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}&exact=1"
       id = info["boardgames"]["boardgame"]["objectid"]
-    else
-      id = info["boardgames"]["boardgame"][0]["objectid"]
-    end
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&stats=1"
-    if info["total_results" == "1"]
       @name = game["boardgames"]["boardgame"]["name"]["__content__"]
       @image = game["boardgames"]["boardgame"]["image"]
       @description = game["boardgames"]["boardgame"]["description"]
@@ -44,15 +39,6 @@ class GamesController < ApplicationController
       @max_players= game["boardgames"]["boardgame"]["maxplayers"]
       @age = game["boardgames"]["boardgame"]["age"]
       @playing_time = game["boardgames"]["boardgame"]["playingtime"]
-    else
-      @name = game["boardgames"]["boardgame"]["name"][0]["__content__"]
-      @image = game["boardgames"]["boardgame"]["image"]
-      @description = game["boardgames"]["boardgame"]["description"]
-      @min_players = game["boardgames"]["boardgame"]["minplayers"]
-      @max_players= game["boardgames"]["boardgame"]["maxplayers"]
-      @age = game["boardgames"]["boardgame"]["age"]
-      @playing_time = game["boardgames"]["boardgame"]["playingtime"]
-    end
     # return game
     list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
