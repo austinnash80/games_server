@@ -4,19 +4,43 @@
 <h1>Games</h1>
 </div>
 
-
 <div class="form-page">
-<h1>Search for a board game</h1>
+<h1>Find your board game</h1>
+</br>
+</div>
+<!-- Search/filter our database  to find a game-->
 
+<div class="row col-sm-3">
+  <h3>Search Existing Games</h3>
+  <%= form_tag games_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :name, params[:name], placeholder: 'Monopoly', class: 'form-control' %>
+      <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+    </p>
+  <% end %>
+</div>
+
+<!-- Search our API database to add a game-->
+<div class="row col-sm-3">
 <form action="/games/result">
-  <label>Enter a board game:</label>
-  <input type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true><br>
-  <button>Search</button>
+  <!-- <label>Enter a board game:</label> -->
+  <h3>Add a New Game</h3>
+  <input class="form-control" type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true></input>
+
+
+  <button class="btn btn-default">Search</button>
+
   <div class="stop-right-there">
     <%= flash[:notice] %>
   </div>
 </form>
 </div>
+
+<div>
+  <%= link_to "Clear Search", games_path, class: 'btn btn-default' %>
+</div>
+
+
 
 
 <table class="table table-hover">
@@ -44,16 +68,18 @@
         <td><%= game.age %></td>
         <td><%= game.playing_time %></td>
         <td><%= game.category %></td>
-        <td><%= game.description %></td>
+        <td><%= game.description.html_safe %></td>
         <% if game.image.present? %>
         <td><%= image_tag game.image, :alt => game.name, :class => 'thumb' %></td>
         <% else %>
         <td><%= game.name %></td>
         <% end %>
-        <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Chat', new_chat_room_path %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? && current_user.player == true %>
+          <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
+        <% end %>
+        <!-- <td><%= link_to 'Edit', edit_game_path(game) %></td> -->
+        <td><%= link_to 'Chat Room', new_chat_room_path %></td>
+        <!-- <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
