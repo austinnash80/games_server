@@ -4,7 +4,7 @@
 <% if user_signed_in? && current_user.player == true %>
   <h1>Events as Host</h1>
 <% elsif user_signed_in? && current_user.sherpa == true %>
-  <h1>Events as Sherpa</h1>
+  <h2><%= current_user.name %> you are sherpaing the following events:</h2>
   <% end %>
 </div>
 
@@ -12,12 +12,12 @@
 
   <thead>
     <tr>
+      <th>Game</th>
       <th>Date</th>
       <th>Time</th>
       <th>Location</th>
       <th>Host</th>
       <th>Sherpa</th>
-      <th>Game</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,12 +25,12 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.game.name %></td>
         <td><%= event.date.strftime('%m/%d/%y') %></td>
         <td><%= event.time.strftime('%I:%M %P') %></td>
         <td><%= event.location %></td>
         <td><%= event.user.name %></td>
         <td><%= User.find_by(id: event.sherpa_id).name %></td>
-        <td><%= event.game.name %></td>
         <% if user_signed_in? && current_user.player == true %>
           <td><%= link_to 'Pay', new_charge_path %></td>
         <% end %>
