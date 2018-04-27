@@ -1,4 +1,5 @@
-jQuery(document).on 'turbolinks:load', ->
+console.log "rooms.coffee included"
+jQuery(document).on 'ready', ->
   messages = $('#messages')
   if $('#messages').length > 0
     messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
