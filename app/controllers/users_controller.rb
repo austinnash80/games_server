@@ -59,13 +59,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 
-    game = Game.find_by(params[:game_id])
+    game = Game.find_by_name(params[:game])
     game.users << current_user
 
     respond_to do |format|
       if @user.update(user_params)
 
-        UserMailer.update(@user).deliver_now
+        # UserMailer.update(@user).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
