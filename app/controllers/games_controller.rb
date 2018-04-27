@@ -8,6 +8,11 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
+
+# Search/filter our database
+    if params[:name]
+      @games = Game.where(name: params[:name])
+    end
   end
 
   # GET /games/1
