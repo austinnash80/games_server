@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
+
 <div class="jumbotron text-center">
-<h1>Your Events</h1>
+<% if user_signed_in? && current_user.player == true %>
+  <h1>Events as Host</h1>
+<% elsif user_signed_in? && current_user.sherpa == true %>
+  <h1>Events as Sherpa</h1>
+  <% end %>
 </div>
 
 <table class="table table-hover">
@@ -26,9 +31,13 @@
         <td><%= event.user.name %></td>
         <td><%= User.find_by(id: event.sherpa_id).name %></td>
         <td><%= event.game.name %></td>
-        <td><%= link_to 'Show', event %></td>
+        <% if user_signed_in? && current_user.player == true %>
+          <td><%= link_to 'Pay', new_charge_path %></td>
+        <% end %>
+        <td><%= link_to 'Chat', new_chat_room_path %></td>
+        <td><%= link_to 'Details', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Cancel', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,8 +45,13 @@
 
 <br>
 <div>
-<h4>Want to create an event? <%= link_to 'Select Your Game Here', games_path %></h4>
+  <% if user_signed_in? && current_user.player == true %>
+      <h3><strong>Want to create an event?</strong> <%= link_to 'Select Your Game Here', games_path %></h3>
+
+  <% elsif user_signed_in? && current_user.sherpa == true %>
+      <h3>To host an event you must register as a player</h3>
+  <% end %>
 </div>
-<div>
+<!-- <div>
 <h4><%= link_to 'Pay for your event', new_charge_path %></h4>
-</div>
+</div> -->
