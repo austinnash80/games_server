@@ -28,8 +28,13 @@ class GamesController < ApplicationController
   def result
     title = params[:title]
     # find the id
-    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}&exact=1"
-      id = info["boardgames"]["boardgame"]["objectid"]
+    info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
+      id = info["boardgames"]["boardgame"]
+        if id.is_a? Array
+          id = info["boardgames"]["boardgame"][0]["objectid"]
+        else
+          id = info["boardgames"]["boardgame"]["objectid"]
+        end
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&search=1"
       @name = game["boardgames"]["boardgame"]["name"]
