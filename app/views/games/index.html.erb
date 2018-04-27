@@ -44,16 +44,14 @@
         <td><%= game.age %></td>
         <td><%= game.playing_time %></td>
         <td><%= game.category %></td>
-        <td><%= game.description %></td>
+        <td><%= game.description.html_safe %></td>
         <% if game.image.present? %>
         <td><%= image_tag game.image, :alt => game.name, :class => 'thumb' %></td>
         <% else %>
         <td><%= game.name %></td>
         <% end %>
         <td><%= link_to 'Select', game, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Chat', new_chat_room_path %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
