@@ -7,11 +7,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.where(user_id: current_user.id)
+    if user_signed_in? && current_user.player == true
+      @events = Event.where(user_id: current_user.id)
+    elsif user_signed_in? && current_user.sherpa == true
+      @events = Event.where(sherpa_id: current_user.id)
+      #show where current_user.id == event.sherpa_id
+    end
 
     # @events = Event.none
-    # if params[:seq_number]
-    #  @updates = Update.where(seq_number: params[:seq_number])
 
     # if params[:user_id]
       # @events = Event.where(user_id: params[:user_id])
@@ -28,6 +31,7 @@ class EventsController < ApplicationController
   end
 
   def finishmatch
+
 
     @event = Event.where(user_id: current_user.id).last
     @event.sherpa_id = params[:sherpa_id]
