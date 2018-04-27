@@ -8,6 +8,11 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
+
+# Search/filter our database
+    if params[:name]
+      @games = Game.where(name: params[:name])
+    end
   end
 
   # GET /games/1
@@ -29,14 +34,12 @@ class GamesController < ApplicationController
     title = params[:title]
     # find the id
     info = HTTParty.get "http://www.boardgamegeek.com/xmlapi/search?search=#{title}"
-
-    ja = info["boardgames"]["boardgame"]
-    if ja.is_a? Array
-      id = ja[0]["objectid"]
-    else
-      id = info["boardgames"]["boardgame"]["objectid"]
-    end
-      
+      id = info["boardgames"]["boardgame"]
+        if id.is_a? Array
+          id = info["boardgames"]["boardgame"][0]["objectid"]
+        else
+          id = info["boardgames"]["boardgame"]["objectid"]
+        end
     # find the info that id
     game = HTTParty.get "https://boardgamegeek.com/xmlapi/boardgame/#{ id }?&search=1"
       @name = game["boardgames"]["boardgame"]["name"]
@@ -54,7 +57,7 @@ class GamesController < ApplicationController
     # return game
     list = Game.where('boardgame.name' => @name)
       # redirect them to the show page for that boardgame so they can add that game to their shelf from there
-        @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time)
+        @game = Game.create(:name => @name, :description => @description, :min_players => @min_players, :max_players => @max_players, :age => @age, :playing_time => @playing_time, :image => @image)
     end
 
   # POST /games
