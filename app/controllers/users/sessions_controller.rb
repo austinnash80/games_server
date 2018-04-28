@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-
-  def create
-    # custom sign-in code
-  end
+  # def create
+  #   # custom sign-in code
+  # end
   
   # before_action :configure_sign_in_params, only: [:create]
 
