@@ -28,7 +28,7 @@
         <span>Player: <strong><%= current_user.name || current_user.email %></strong></span>
         <%= form_tag events_path, :method => 'get' do %>
 
-            <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %>
+            <!-- <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %> -->
             <%= submit_tag "My Events", :name => nil, :class => 'remove navbar-link' %>
 
         <% end %>
