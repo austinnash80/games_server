@@ -8,20 +8,22 @@ class RegistrationsController < Devise::RegistrationsController
 
   def send_welcome_email
     # puts "worked!!"
-    UserMailer.welcome(current_user).deliver_now
+    if current_user != nil
+      UserMailer.welcome(current_user).deliver_now
+    end
     # binding.pry
   end
 
-# Customise devise code - add fields here
-    private
+  # Customise devise code - add fields here
+  private
 
-    def sign_up_params
-      params.require(:user).permit(:name, :player, :sherpa, :email, :password, :password_confirmation)
-    end
+  def sign_up_params
+    params.require(:user).permit(:name, :player, :sherpa, :email, :password, :password_confirmation)
+  end
 
-    def account_update_params
-      params.require(:user).permit(:name, :player, :sherpa, :email, :password, :password_confirmation, :current_password)
-    end
+  def account_update_params
+    params.require(:user).permit(:name, :player, :sherpa, :email, :password, :password_confirmation, :current_password)
+  end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
