@@ -11,7 +11,6 @@ Rails.application.configure do
    :domain         => ENV['herokuapp.com']
   }
 
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 

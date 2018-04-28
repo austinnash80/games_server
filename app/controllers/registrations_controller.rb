@@ -11,7 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
     if current_user != nil
       UserMailer.welcome(current_user).deliver_now
     end
-    # binding.pry
   end
 
   # Customise devise code - add fields here
