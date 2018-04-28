@@ -2,6 +2,16 @@
 
 class RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!
+
+  after_action :send_welcome_email, only: :create
+  # after_action :after_signup, methodname
+
+  def send_welcome_email
+    # puts "worked!!"
+    UserMailer.welcome(current_user).deliver_now
+    # binding.pry
+  end
+
 # Customise devise code - add fields here
     private
 
