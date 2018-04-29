@@ -151,11 +151,11 @@
 
 
             <% if user_signed_in? && current_user.sherpa == true %>
-                Logged in as a Sherpa: <%= current_user.name || current_user.email %>
+                Logged in as a <strong>Sherpa</strong>. Welcome back: <strong><%= current_user.name || current_user.email %></strong>
             <% end %>
 
             <% if user_signed_in? && current_user.player == true %>
-                Logged in as a Player: <%= current_user.name || current_user.email %>
+                Logged in as a <strong>Player</strong>. Welcome back <strong>  <%= current_user.name || current_user.email %></strong>
             <%end%>
         </div>
         <div class="space-70"></div><div class="space-30"></div>
