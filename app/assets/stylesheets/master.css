@@ -93,8 +93,8 @@ html {
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400i");
 @font-face {
   font-family: "Ionicons";
-  src: url("../icons/fonts/ionicons.eot?v=2.0.0");
-  src: url("../icons/fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../icons/fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("../icons/fonts/ionicons.woff?v=2.0.0") format("woff"), url("../icons/fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
+  /* src: url("../icons/fonts/ionicons.eot?v=2.0.0"); */
+  /* src: url("../icons/fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../icons/fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("../icons/fonts/ionicons.woff?v=2.0.0") format("woff"), url("../icons/fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg"); */
   font-weight: normal;
   font-style: normal; }
 
