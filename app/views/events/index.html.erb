@@ -3,7 +3,7 @@
 
 <div class="jumbotron text-center">
 <% if user_signed_in? && current_user.player == true %>
-  <h1>Events as Host</h1>
+  <%= image_tag("myevents.png", :class => "img-fluid ")%>
 <% elsif user_signed_in? && current_user.sherpa == true %>
   <h2><%= current_user.name %> you are sherpaing the following events:</h2>
   <% end %>
