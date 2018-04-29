@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 
 class EventsController < ApplicationController
   before_action :authenticate_user!, :set_event, only: [:show, :edit, :update, :destroy]
@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    
     if user_signed_in? && current_user.player == true
       @events = Event.where(user_id: current_user.id)
     elsif user_signed_in? && current_user.sherpa == true
@@ -32,12 +31,9 @@ class EventsController < ApplicationController
   end
 
   def finishmatch
-
-
     @event = Event.where(user_id: current_user.id).last
     @event.sherpa_id = params[:sherpa_id]
     @event.save
-
     # Mailer code goes here - send invite to sherpa
 
   end

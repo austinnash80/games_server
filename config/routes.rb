@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'pages/aboutus'
-
   get 'pages/contact'
 
   devise_for :users, :controllers => { registrations: 'registrations' }, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
 
   root :to => 'pages#home'
 
+  get '/index' => 'pages#home'
   get '/links' => 'pages#links'
   get '/aboutus' => 'pages#aboutus'
   get '/contact' => 'pages#contact'
