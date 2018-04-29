@@ -98,9 +98,11 @@
                                     <%= link_to "My Account", users_path, :name => nil, :class => 'dropdown-toggle nav-link' %>
                                 </li>
 
-                                <%= form_tag events_path, :method => 'get' do %>
-                                    <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %>
-                                <% end %>
+                                <!-- This code displays the sherpa's id number - which I don't see any value in doing. Commented out for now.-->
+
+                                <%# <%= form_tag events_path, :method => 'get' do %>
+                                    <%# <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %>
+                                <%# <% end %>
 
                                 <li class="dropdown nav-item">
                                     <%= link_to "My Events", events_path, :name => nil, :class => 'dropdown-toggle nav-link' %>
