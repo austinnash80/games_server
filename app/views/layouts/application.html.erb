@@ -30,18 +30,16 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.html">
-                        <%= image_tag("sherpaimages/logo-dark.png", :class => "img-fluid logo-dark", :alt => "rss feed") %>
-                    </a>
+                    <div class="landinglogopos">
+                        <a class="navbar-brand" href="index.html">
+                            <%= image_tag("sherpaimages/logo-dark.png", :class => "img-fluid logo-dark", :alt => "rss feed") %>
+                        </a>
+                    </div>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
 
                             <% if user_signed_in? && current_user.player == true %>
-
-                                <!-- This needs to be re-enabled with appropriate class, invisible now
-                                <span>Sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
-                                -->
 
                                 <li class="active dropdown nav-item">
                                     <%= link_to "Home", root_path, :class => 'dropdown-toggle nav-link' %>
@@ -77,10 +75,6 @@
                             <% end %>
 
                             <% if user_signed_in? && current_user.sherpa == true %>
-
-                                <!-- This needs to be re-enabled with appropriate class, invisible now
-                                <span>Sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
-                                -->
 
                                 <li class="active dropdown nav-item">
                                     <%= link_to "Home", root_path, :class => 'dropdown-toggle nav-link' %>
@@ -144,6 +138,17 @@
         <% if alert %>
             <p class="alert alert-danger"><%= alert %></p>
         <% end %>
+
+        <!-- Display whether player or sherpa -->
+        <div class="usertext">
+            <% if user_signed_in? && current_user.sherpa == true %>
+                Logged in as a Sherpa: <%= current_user.name || current_user.email %>
+            <% end %>
+
+            <% if user_signed_in? && current_user.player == true %>
+                Logged in as a Player: <%= current_user.name || current_user.email %>
+            <%end%>
+        </div>
 
         <%= yield %>
         <!--footer-->
