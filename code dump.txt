@@ -19,6 +19,13 @@
                 <%# <%= link_to "Edit Profile", user_path(current_user.id), :class => 'navbar-link' %>
 
 from index.html.erb:
-          <%#  if user_signed_in? && current_user.player == true %> 
-            <%# link_to 'Pay', new_charge_path %> 
-          <%#  end %>
+
+          
+                  <%# <td><%= link_to 'Chat', new_chat_room_path %>
+
+                  
+        <td>
+          <% if event.sherpa_id != nil %>
+            <%= User.find_by(id: event.sherpa_id).name %>
+          <%end>%>
+        </td>
