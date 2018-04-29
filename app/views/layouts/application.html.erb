@@ -148,6 +148,8 @@
 
         <!-- Display whether player or sherpa -->
         <div class="usertext">
+
+
             <% if user_signed_in? && current_user.sherpa == true %>
                 Logged in as a Sherpa: <%= current_user.name || current_user.email %>
             <% end %>
@@ -156,6 +158,7 @@
                 Logged in as a Player: <%= current_user.name || current_user.email %>
             <%end%>
         </div>
+        <div class="space-70"></div><div class="space-30"></div>
 
         <%= yield %>
         <!--footer-->
