@@ -13,7 +13,7 @@
 <!-- Search/filter our database  to find a game-->
 
 <div class="row col-sm-3">
-  <h3>Search Existing Games</h3>
+  <h3 class>Search Existing Games</h3>
   <%= form_tag games_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :name, params[:name], placeholder: 'Monopoly', class: 'form-control' %>
