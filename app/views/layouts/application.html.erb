@@ -15,7 +15,7 @@
 
     <title>SHERPA v.1.0.1</title>
   </head>
-  <body>
+  <body class="boxed">
     <!-- <div class="wrapper" id="wrapper">  <p class="announcement">
       <div class="card-group" id="card-group" data-active-card="login">
     <div class="loggy"> -->
@@ -31,47 +31,35 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/logo-dark.png" class="img-fluid logo-dark" alt="">
+                        <%= image_tag("sherpaimages/logo-dark.png", :class => "img-fluid logo-dark",  :alt => "rss feed") %>
                     </a>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="active dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Home</a>
+                                <a href="#" class="dropdown-toggle nav-link">Home</a>
                             </li>
                             <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Sign Up</a>
+                                <a href="#" class="dropdown-toggle nav-link">Sign Up</a>
                                 <ul class="dropdown-menu">
 
                                 </ul>
                             </li>
                             <li class=" dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Sign In</a>
+                                <a href="#" class="dropdown-toggle nav-link">Sign In</a>
                             </li>
                             <!--mega menu-->
                             <li class="dropdown dropdown-fw nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Games  <i class="fa fa-angle-down"></i></a>
+                                <a href="#" class="dropdown-toggle nav-link">Games  <i class="fa fa-angle-down"></i></a>
 
                             </li>
                             <li class=" dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">My events</a>
+                                <a href="#" class="dropdown-toggle nav-link">My events</a>
 
                             </li>
                         </ul>
                     </div>
-                    <div class="right-search ml-4 dropdown">
-                        <a class="icon-search" href="#!" data-toggle="dropdown">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <form class="form-inline">
-                                <input type="text" placeholder="Search" class="form-control">
-                                <button type="button" class="form-search-button">
-                                    <i class="ion-ios-search-strong"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+
                 </div>
             </nav><!--nav end-->
 
@@ -130,7 +118,8 @@
 
         <% if user_signed_in?  %>
         <% else %>
-        <nav class="navbar navbar-inverse">
+        <!-- <nav class="navbar navbar-inverse"> -->
+          <nav class="navbar navbar-expand-lg yamm">
           <div class="container-fluid">
           <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
@@ -219,7 +208,7 @@
                     <div class="space-70"></div>
                     <div class="row">
                         <div class="col-md-12 text-center footer-bottom">
-                            <a href="index.html"> <img src="assets/img/logo-white.png" alt=""></a>
+                            <a href="index.html"> <%= image_tag("sherpaimages/logo-dark.png", :alt => "change this") %>/a>
                             <div class="space-20"></div>
                             <span>©2018. All right reserved. </span>
                         </div>
