@@ -115,7 +115,6 @@
                                 </li>
 
                             <%end%>
-
                         </ul>
                     </div>
                 </div>
@@ -125,9 +124,17 @@
         <% if user_signed_in?  %>
         <% else %>
             <nav class="navbar navbar-expand-lg yamm">
-                <div class="container-fluid">
-                    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
-                    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="dropdown nav-item">
+                                <%= link_to "Sign Up", new_user_registration_path, :class => 'dropdown-toggle nav-link'  %>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <%= link_to "Login", new_user_session_path, :class => 'dropdown-toggle nav-link'  %>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         <% end %>
