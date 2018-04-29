@@ -18,15 +18,19 @@ span {
   background-color: green;
 }
 
-.display-none{
+.display-none {
   width: 50px;
   margin: 7px;
   padding: 5px;
 }
 
+.defaultspacer {
+  padding: 0px 20px;
+}
+
 .usertext {
   margin-right: 5px;
-  color: rgb(209, 209, 209);
+  color: #808080;
   float: right;
 }
 
