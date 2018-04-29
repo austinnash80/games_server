@@ -38,7 +38,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-        
+
                             <% if user_signed_in? && current_user.player == true %>
 
                                 <li class="active dropdown nav-item">
@@ -87,7 +87,7 @@
                                 <%= form_tag users_path, :method => 'get' do %>
                                     <%= text_field_tag :name, params[:name], value: current_user.name, class: 'display-none' %>
                                 <% end %>
-                                
+
                                 <li class="dropdown nav-item">
                                     <%= link_to "My Account", users_path, :name => nil, :class => 'dropdown-toggle nav-link' %>
                                 </li>
@@ -158,7 +158,6 @@
         </div>
 
         <%= yield %>
-
         <!--footer-->
         <div id="footer">
             <div class="container">
