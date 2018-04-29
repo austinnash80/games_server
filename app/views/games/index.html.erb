@@ -68,7 +68,7 @@
         <td><%= game.age %></td>
         <td><%= game.playing_time %></td>
         <td><%= game.category %></td>
-        <td><%= game.description.html_safe %></td>
+        <td><%= game.description.html_safe? %></td>
         <% if game.image.present? %>
         <td><%= image_tag game.image, :alt => game.name, :class => 'thumb' %></td>
         <% else %>

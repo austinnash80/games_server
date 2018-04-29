@@ -46,7 +46,7 @@
 <br>
 <div>
   <% if user_signed_in? && current_user.player == true %>
-      <h3><strong>Want to create an event?</strong> <%= link_to 'Select Your Game Here', games_path %></h3>
+      <h3 class="create"><strong>Want to create an event?</strong> <%= link_to 'Select Your Game Here', games_path %></h3>
 
   <% elsif user_signed_in? && current_user.sherpa == true %>
       <h3>To host an event you must register as a player</h3>
