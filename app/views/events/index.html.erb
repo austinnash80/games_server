@@ -37,11 +37,11 @@
             <%= User.find_by(id: event.sherpa_id).name %>
           <%end>%>
         </td>
-        
-        <% if user_signed_in? && current_user.player == true %> 
-         <td><% link_to 'Pay', new_charge_path %></td> 
-        <% end %>     
-        
+
+        <% if user_signed_in? && current_user.player == true %>
+         <td><% link_to 'Pay', new_charge_path %></td>
+        <% end %>
+
         <td><%= link_to 'Chat', new_chat_room_path %></td>
         <td><%= link_to 'Details', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
@@ -54,7 +54,8 @@
 <br>
 <div>
   <% if user_signed_in? && current_user.player == true %>
-      <h3><strong>Want to create an event?</strong> <%= link_to 'Select Your Game Here', games_path %></h3>
+      <h3 class="create"><strong>Want to create an event?</strong> <%= link_to 'Select Your Game Here', games_path %></h3>
+
   <% elsif user_signed_in? && current_user.sherpa == true %>
       <h3>To host an event you must register as a player</h3>
   <% end %>
