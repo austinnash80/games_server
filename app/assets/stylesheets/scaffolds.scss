@@ -18,8 +18,24 @@ span {
   background-color: green;
 }
 
-.display-none{
-  display: none;
+.display-none {
+  width: 50px;
+  margin: 7px;
+  padding: 5px;
+}
+
+.defaultspacer {
+  padding: 0px 20px;
+}
+
+.usertext {
+  margin-left: 30px;
+  color: #808080;
+  float: left;
+}
+
+.landinglogopos {
+  margin-top: 1em;
 }
 
 .remove {
@@ -47,8 +63,8 @@ a {
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    // color: #fff;
+    // background-color: #000;
   }
 }
 

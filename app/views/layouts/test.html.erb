@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <title>SHERPA v.1.0.1</title>
+  </head>
+  <body class="boxed">
+    <!-- <div class="wrapper" id="wrapper">  <p class="announcement">
+      <div class="card-group" id="card-group" data-active-card="login">
+    <div class="loggy"> -->
+
+    <!-- <ul class="nav navbar-nav"> -->
+
+  <section class="boxed-wrapper">
+            <header class="header header-light">
+
+            <nav class="navbar navbar-expand-lg yamm">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <%= image_tag("sherpaimages/logo-dark.png", :class => "img-fluid logo-dark",  :alt => "rss feed") %>
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="active dropdown nav-item">
+                                <a href="#" class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link">Sign Up</a>
+                                <ul class="dropdown-menu">
+
+                                </ul>
+                            </li>
+                            <li class=" dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link">Sign In</a>
+                            </li>
+                            <!--mega menu-->
+                            <li class="dropdown dropdown-fw nav-item">
+                                <a href="#" class="dropdown-toggle nav-link">Games  <i class="fa fa-angle-down"></i></a>
+
+                            </li>
+                            <li class=" dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link">My events</a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav><!--nav end-->
+
+        </header>
+        <% if user_signed_in? && current_user.player == true %>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+
+          <span>Player: <strong><%= current_user.name || current_user.email %></strong></span>
+          <%= form_tag events_path, :method => 'get' do %>
+
+              <!-- <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %> -->
+              <%= submit_tag "My Events", :name => nil, :class => 'remove navbar-link' %>
+
+          <% end %>
+          <%= link_to "Home", root_path, :class => 'navbar-link' %> |
+          <%= link_to "About Us", aboutus_path, :class => 'navbar-link' %> |
+          <%= link_to "Games", games_path, :class => 'navbar-link' %> |
+          <%= link_to 'Edit Account', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to 'Chat Rooms', chat_rooms_path, :class => 'navbar-link' %> |
+          <%= link_to 'Contact', contact_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        </div>
+        </nav>
+        <% end %>
+
+        <% if user_signed_in? && current_user.sherpa == true %>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+
+          <span>Sherpa: <strong><%= current_user.name || current_user.email %></strong></span>
+
+          <%= form_tag users_path, :method => 'get' do %>
+
+              <%= text_field_tag :name, params[:name], value: current_user.name, class: 'display-none' %>
+              <%= submit_tag "My Account", :name => nil, :class => 'remove navbar-link' %>
+
+          <% end %>|
+          <!-- <%= link_to "Edit Profile", user_path(current_user), :class => 'navbar-link' %> | -->
+          <%# <%= link_to "Edit Profile", user_path(current_user.id), :class => 'navbar-link' %>
+          <%= form_tag events_path, :method => 'get' do %>
+
+              <%= text_field_tag :user_id, params[:user_id], value: current_user.id, class: 'display-none' %>
+              <%= submit_tag "Your Events", :name => nil, :class => 'remove navbar-link' %>
+
+          <% end %>|
+
+
+          <%= link_to "Games", games_path, :class => 'navbar-link' %> |
+          <!-- <%= link_to 'Edit Account', edit_user_registration_path, :class => 'navbar-link' %> | -->
+          <%= link_to 'LiveChat', chat_rooms_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        </div>
+        </nav>
+        <% end %>
+
+        <% if user_signed_in?  %>
+        <% else %>
+        <!-- <nav class="navbar navbar-inverse"> -->
+          <nav class="navbar navbar-expand-lg yamm">
+          <div class="container-fluid">
+          <%= link_to "Sign Up", new_user_registration_path, :class => 'nav-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        </div>
+        </nav>
+        <% end %>
+
+      </div>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+    </div>
+            <!--footer-->
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 margin-btm-20">
+                            <div class="footer-col">
+                                <h3>Sherpa</h3>
+                                <p>
+                                    aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aliqua.adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                                </p>
+                            </div>
+                            <div class="space-20"></div>
+                            <div class="footer-col">
+                                <h3>contact info</h3>
+                                <p><i class="ion-home"></i> General Assembly Sydney</p>
+                                <p><i class="ion-iphone"></i> +91 9887568614</p>
+                                <p><i class="ion-email"></i> mail@domain.com</p>
+                            </div>
+                            <div class="space-20"></div>
+                            <div class="footer-col">
+                                <h3>Follow us</h3>
+                                <ul class=" list-inline social-btn">
+                                    <li class="list-inline-item"><a href="#"><i class="ion-social-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Like On Facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="ion-social-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow On twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="ion-social-googleplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow On googleplus"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="ion-social-pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="pinterest"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="ion-social-skype" data-toggle="tooltip" data-placement="top" title="" data-original-title="skype"></i></a></li>
+                                </ul>
+                            </div><!--footer social col-->
+                        </div><!--col-4 end-->
+                        <div class="col-md-3 margin-btm-20">
+                            <div class="footer-col">
+                                <h3>Latest post</h3>
+                                <ul class="post-list list-unstyled">
+                                    <li><a href="#" class="hover-color">Virtual Sherpa mode added</a></li>
+                                    <li><a href="#" class="hover-color">iOS and Android versions launch</a></li>
+                                    <li><a href="#" class="hover-color">BGG publishes top games list</a></li>
+                                    <li><a href="#" class="hover-color">Tabletop gaming sees resurgence</a></li>
+                                    <li><a href="#" class="hover-color">Games Sherpa now accpeting cryptos</a></li>
+                                </ul>
+                            </div>
+                        </div><!--latest post col end-->
+                        <div class="col-md-5">
+                            <div class="footer-col">
+                                <h3>Get in touch</h3>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="Name...">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control" placeholder="Email...">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control" placeholder="Subject...">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" placeholder="Massage..." rows="7"></textarea>
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button type="submit" class="btn btn-lg btn-white">Send message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!--get in touch col end-->
+                    </div><!--footer main row end-->
+                    <div class="space-70"></div>
+                    <div class="row">
+                        <div class="col-md-12 text-center footer-bottom">
+                            <a href="index.html"> <%= image_tag("sherpaimages/logo-dark.png", :alt => "change this") %>/a>
+                            <div class="space-20"></div>
+                            <span>©2018. All right reserved. </span>
+                        </div>
+                    </div><!--footer copyright row end-->
+                </div><!--container-->
+            </div><!--footer main end-->
+        </section>
+  </body>
+</html>

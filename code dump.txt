@@ -1,0 +1,31 @@
+          <%= form_tag events_path, :method => 'get' do %>
+              <%= submit_tag "My Events", :name => nil, :class => 'remove navbar-link' %>
+          <% end %>
+
+ <style>
+ .px1 {
+     color: black;
+     background: blue;
+     margin: 10px 10px;
+     font: black;
+ }
+ </style>
+
+          <!-- <%= link_to 'Edit Account', edit_user_registration_path, :class => 'navbar-link' %> | -->
+
+
+                <!-- <%= link_to "Edit Profile", user_path(current_user), :class => 'navbar-link' %> | -->
+
+                <%# <%= link_to "Edit Profile", user_path(current_user.id), :class => 'navbar-link' %>
+
+from index.html.erb:
+
+          
+                  <%# <td><%= link_to 'Chat', new_chat_room_path %>
+
+                  
+        <td>
+          <% if event.sherpa_id != nil %>
+            <%= User.find_by(id: event.sherpa_id).name %>
+          <%end>%>
+        </td>
