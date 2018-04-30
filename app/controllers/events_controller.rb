@@ -1,5 +1,3 @@
-require 'pry'
-
 class EventsController < ApplicationController
   before_action :authenticate_user!, :set_event, only: [:show, :edit, :update, :destroy]
   set_tab :events

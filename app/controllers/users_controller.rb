@@ -1,4 +1,3 @@
-# require 'pry'
 require 'digest/md5'
 
 class UsersController < ApplicationController
