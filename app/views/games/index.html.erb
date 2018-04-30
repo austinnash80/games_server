@@ -17,6 +17,7 @@
   <%= form_tag games_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :name, params[:name], placeholder: 'Monopoly', class: 'form-control' %>
+      <br/><br/>
       <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
     </p>
   <% end %>
@@ -28,7 +29,7 @@
   <!-- <label>Enter a board game:</label> -->
   <h3>Add a New Game</h3>
   <input class="form-control" type="text" name="title" placeholder="e.g. Settlers of Cataan" required autofocus=true></input>
-
+      <br/><br/>
   <button class="btn btn-default">Search</button>
 
   <div class="stop-right-there">
